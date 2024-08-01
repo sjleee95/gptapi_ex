@@ -16,12 +16,11 @@ client = OpenAI(
 #print("인증성공")
 
 #Send question to GPT Model
-response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
-    messages=[
-        {"role":"system","content": "You are an IT expert."},
-        {"role":"user","content":"What is top 5 popular Computer Language in the world?"}
-    ]
-)
+from pathlib import Path
+with client.audio.speech.with_streaming_response.create(
+    model="tts-1",
+    voice="alloy",
+    input="안녕하세요."
+) as response:
+    response.stream_to_file("speech.mp3")
 
-print(response.choices[0].message.content)
