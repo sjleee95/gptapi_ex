@@ -19,7 +19,7 @@ client = OpenAI(
 response = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
-        {"role":"system","content": "You are an IT expert."},
+        #{"role":"system","content": "You are an IT expert."},
         {"role":"user","content":"What is top 5 popular Computer Language in the world?"}
     ]
 )
